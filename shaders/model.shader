@@ -300,10 +300,12 @@ void main( void )
 #endif
 
 	float dist = length( lightVec ) / lightPos.w;
-	gl_FragDepth = dist + shadowBias;
-
-	// Clearly better bias but requires SM 3.0
-	//gl_FragDepth = dist + abs( dFdx( dist ) ) + abs( dFdy( dist ) ) + shadowBias;
+	gl_FragDepth = dist
+#ifdef _F06_HighQualShadows
+			// Clearly better bias but requires SM 3.0
+			+ abs( dFdx( dist ) ) + abs( dFdy( dist ) )
+#endif
+			+ shadowBias;
 }
 
 
