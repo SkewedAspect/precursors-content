@@ -87,7 +87,6 @@ context AMBIENT
 
 [[VS_GENERAL]]
 // =================================================================================================
-#version 120
 
 #ifdef _F03_ParallaxMapping
 	#define _F02_NormalMapping
@@ -176,7 +175,6 @@ void main( void )
 
 [[FS_ATTRIBPASS]]
 // =================================================================================================
-#version 120
 
 #ifdef _F03_ParallaxMapping
 	#define _F02_NormalMapping
@@ -250,7 +248,6 @@ void main( void )
 
 [[VS_SHADOWMAP]]
 // =================================================================================================
-#version 120
 
 #include "shaders/utilityLib/vertCommon.glsl"
 #include "shaders/utilityLib/vertSkinning.glsl"
@@ -284,7 +281,6 @@ void main( void )
 
 [[FS_SHADOWMAP]]
 // =================================================================================================
-#version 120
 
 uniform vec4 lightPos;
 uniform float shadowBias;
@@ -313,7 +309,6 @@ void main( void )
 
 [[FS_LIGHTING]]
 // =================================================================================================
-#version 120
 
 #ifdef _F03_ParallaxMapping
 	#define _F02_NormalMapping
@@ -384,7 +379,6 @@ void main( void )
 
 [[FS_AMBIENT]]
 // =================================================================================================
-#version 120
 
 #ifdef _F03_ParallaxMapping
 	#define _F02_NormalMapping
