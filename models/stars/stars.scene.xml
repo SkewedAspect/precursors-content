@@ -1,0 +1,12 @@
+<!--Model name="stars" geometry="models/stars/stars.geo">
+	<Mesh name="Cube" material="models/stars/stars-right1.material.xml" batchStart="0" batchCount="6" vertRStart="0" vertREnd="3">
+		<Mesh name="#Cube" material="models/stars/stars-left2.material.xml" batchStart="6" batchCount="6" vertRStart="4" vertREnd="7" />
+		<Mesh name="#Cube" material="models/stars/stars-top3.material.xml" batchStart="12" batchCount="6" vertRStart="8" vertREnd="11" />
+		<Mesh name="#Cube" material="models/stars/stars-bottom4.material.xml" batchStart="18" batchCount="6" vertRStart="12" vertREnd="15" />
+		<Mesh name="#Cube" material="models/stars/stars-back5.material.xml" batchStart="24" batchCount="6" vertRStart="16" vertREnd="19" />
+		<Mesh name="#Cube" material="models/stars/stars-front6.material.xml" batchStart="30" batchCount="6" vertRStart="20" vertREnd="23" />
+	</Mesh>
+</Model-->
+<Model name="skybox" geometry="models/skybox/skybox.geo">
+	<Mesh name="Box01" material="models/stars/stars.material.xml" tx="0" ty="0" tz="-1" rx="-90" ry="0" rz="-180" sx="2" sy="2" sz="2" batchStart="0" batchCount="36" vertRStart="0" vertREnd="23" />
+</Model>

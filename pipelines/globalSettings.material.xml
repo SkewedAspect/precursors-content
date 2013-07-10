@@ -1,0 +1,6 @@
+<Material>
+	<!--Sampler name="ambientMap" map="textures/ambientMap.dds" /-->
+	<!--Sampler name="ambientMap" map="textures/grey2.dds" /-->
+	<Sampler name="ambientMap" map="models/stars/purplenebula_256_ambient.dds" />
+	<Sampler name="envMap" map="models/stars/purplenebula_512_specular.dds" />
+</Material>
