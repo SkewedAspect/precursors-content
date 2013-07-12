@@ -1,6 +1,8 @@
 <Material>
-	<Sampler name="ambientMap" map="models/stars/purplenebula_256_ambient.dds" />
-	<Sampler name="envMap" map="models/stars/purplenebula_512_specular.dds" />
+	<!--Sampler name="ambientMap" map="models/stars/purplenebula_256_ambient.dds" /-->
+	<Sampler name="ambientMap" map="models/stars/purplenebula_2048_ambient.dds" />
+	<!--Sampler name="envMap" map="models/stars/purplenebula_512_specular.dds" /-->
+	<Sampler name="envMap" map="models/stars/purplenebula_2048.dds" />
 
 	<ShaderFlag name="_F06_HighQualShadows" />
 </Material>
