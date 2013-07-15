@@ -44,10 +44,10 @@ float4 matDiffuseCol <
 float4 matSpecParams <
 	string desc_abc = "abc: specular color";
 	string desc_d   = "d: gloss";
-> = {0.04, 0.04, 0.04, 0.5};
+> = {0.005, 0.005, 0.005, 0.5};
 
 float4 matReflParams <
-	string desc_abc = "abc: strength";
+	string desc_abc = "abc: strength in RGB";
 	string desc_d   = "d: diffusion (0..4)";
 > = {0.3, 0.3, 0.3, 3.0};
 
