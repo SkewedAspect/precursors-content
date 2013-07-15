@@ -1,4 +1,4 @@
 <Model name="AssJacket" geometry="models/AssJacket/AssJacket.geo">
 
-	<Mesh name="AssJacket" material="models/AssJacket/Asteroid.material.xml" batchStart="0" batchCount="960" vertRStart="0" vertREnd="959" />
+	<Mesh name="AssJacket" material="materials/Asteroid.material.xml" batchStart="0" batchCount="960" vertRStart="0" vertREnd="959" />
 </Model>
