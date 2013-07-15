@@ -7,6 +7,7 @@
 	_F03_ParallaxMapping
 	_F04_EnvMapping
 	_F05_AlphaTest
+	_F06_HighQualShadows
 */
 
 
