@@ -1,11 +1,10 @@
 <Group name="asteroids">
 
-	<Reference name="skybox"
-		sceneGraph="models/stars/stars.scene.xml"
-		sx="210" sy="210" sz="210"
-		/>
+	<Reference name="skybox" sx="210" sy="210" sz="210"
+		sceneGraph="models/stars/stars.scene.xml" />
 
-	<!--Reference name="Ares" sceneGraph="" /-->
+	<Reference name="AssJacket" tx="500" ty="0" tz="-1000"
+		sceneGraph="models/AssJacket/AssJacket.scene.xml" />
 
 	<Light name="light" lightingContext="LIGHTING" shadowContext="SHADOWMAP" radius="1000000000" fov="360" col_R="1.0" col_G="1.0" col_B="1.0" tx="-50" ty="50" tz="100" />
 
