@@ -17,6 +17,8 @@ context AMBIENT
 {
 	VertexShader = compile GLSL VS_GENERAL;
 	PixelShader = compile GLSL FS_AMBIENT;
+
+	ZWriteEnable = false;
 }
 
 
@@ -34,10 +36,10 @@ void main(void)
 {
 	vec4 pos = calcWorldPos( vec4( vertPos, 1.0 ) );
 	viewVec = pos.xyz - viewerPos;
-	
+
 	gl_Position = viewProjMat * pos;
 }
-				
+
 
 [[FS_ATTRIBPASS]]
 // =================================================================================================
@@ -50,7 +52,7 @@ varying vec3 viewVec;
 void main( void )
 {
 	vec3 albedo = textureCube( albedoMap, viewVec ).rgb;
-	
+
 	// Set fragment material ID to 2, meaning skybox in this case
 	setMatID( 2.0 );
 	setAlbedo( albedo );
@@ -66,6 +68,6 @@ varying vec3 viewVec;
 void main( void )
 {
 	vec3 albedo = textureCube( albedoMap, viewVec ).rgb;
-	
+
 	gl_FragColor.rgb = albedo;
 }
