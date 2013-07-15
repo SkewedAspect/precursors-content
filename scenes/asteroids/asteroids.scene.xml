@@ -6,6 +6,9 @@
 	<Reference name="AssJacket" tx="500" ty="0" tz="-1000"
 		sceneGraph="models/AssJacket/AssJacket.scene.xml" />
 
+	<Reference name="BigAssAssTeroid" tx="-1000" ty="0" tz="-19000"
+		sceneGraph="models/BigAssAssTeroid/BigAssAssTeroid.scene.xml" />
+
 	<Light name="light" lightingContext="LIGHTING" shadowContext="SHADOWMAP" radius="1000000000" fov="360" col_R="1.0" col_G="1.0" col_B="1.0" tx="-50" ty="50" tz="100" />
 
 </Group>
