@@ -57,6 +57,11 @@ float4 matReflSpreadParams <
 	string desc_cd  = "cd: diffusion spread in w";
 > = {0.3, 0.3, 0.3, 0.3};
 
+float4 matParallaxParams <
+	string desc_a   = "a: parallax scale";
+	string desc_b   = "b: parallax bias";
+> = {0.02, -0.005, 0.0, 0.0};
+
 // Contexts
 context ATTRIBPASS
 {
@@ -117,7 +122,9 @@ varying vec2 texCoords;
 #else
 	varying vec3 tsbNormal;
 #endif
+
 #ifdef _F03_ParallaxMapping
+	uniform vec4 matParallaxParams;
 	varying vec3 eyeTS;
 #endif
 
@@ -200,34 +207,37 @@ varying vec2 texCoords;
 #else
 	varying vec3 tsbNormal;
 #endif
+
 #ifdef _F03_ParallaxMapping
+	uniform vec4 matParallaxParams;
 	varying vec3 eyeTS;
+#else
+	#define newCoords texCoords
 #endif
 
 void main( void )
 {
 #ifdef _F03_ParallaxMapping
-	const float plxScale = 0.03;
-	const float plxBias = -0.015;
+	vec3 newCoords = vec3( texCoords, 0 );
 
 	// Iterative parallax mapping
 	vec3 eye = normalize( eyeTS );
 	for( int i = 0; i < 4; ++i )
 	{
-		vec4 nmap = texture2D( normalMap, texCoords.st );
-		float height = nmap.a * plxScale + plxBias;
-		texCoords += (height - texCoords.p) * nmap.z * eye;
+		vec4 nmap = texture2D( normalMap, newCoords.st );
+		float height = nmap.a * matParallaxParams.b + matParallaxParams.b;
+		newCoords += (height - newCoords.p) * nmap.z * eye;
 	}
 #endif
 
-	vec4 albedo = texture2D( albedoMap, texCoords.st ) * matDiffuseCol;
+	vec4 albedo = texture2D( albedoMap, newCoords.st ) * matDiffuseCol;
 
 #ifdef _F05_AlphaTest
 	if( albedo.a < 0.01 ) discard;
 #endif
 
 #ifdef _F02_NormalMapping
-	vec3 normalMap = texture2D( normalMap, texCoords.st ).rgb * 2.0 - 1.0;
+	vec3 normalMap = texture2D( normalMap, newCoords.st ).rgb * 2.0 - 1.0;
 	vec3 normal = tsbMat * normalMap;
 #else
 	vec3 normal = tsbNormal;
@@ -335,34 +345,37 @@ varying vec2 texCoords;
 #else
 	varying vec3 tsbNormal;
 #endif
+
 #ifdef _F03_ParallaxMapping
+	uniform vec4 matParallaxParams;
 	varying vec3 eyeTS;
+#else
+	#define newCoords texCoords
 #endif
 
 void main( void )
 {
 #ifdef _F03_ParallaxMapping
-	const float plxScale = 0.03;
-	const float plxBias = -0.015;
+	vec3 newCoords = vec3( texCoords, 0 );
 
 	// Iterative parallax mapping
 	vec3 eye = normalize( eyeTS );
 	for( int i = 0; i < 4; ++i )
 	{
-		vec4 nmap = texture2D( normalMap, texCoords.st );
-		float height = nmap.a * plxScale + plxBias;
-		texCoords += (height - texCoords.p) * nmap.z * eye;
+		vec4 nmap = texture2D( normalMap, newCoords.st );
+		float height = nmap.a * matParallaxParams.b + matParallaxParams.b;
+		newCoords += (height - newCoords.p) * nmap.z * eye;
 	}
 #endif
 
-	vec4 albedo = texture2D( albedoMap, texCoords.st ) * matDiffuseCol;
+	vec4 albedo = texture2D( albedoMap, newCoords.st ) * matDiffuseCol;
 
 #ifdef _F05_AlphaTest
 	if( albedo.a < 0.01 ) discard;
 #endif
 
 #ifdef _F02_NormalMapping
-	vec3 normalMap = texture2D( normalMap, texCoords.st ).rgb * 2.0 - 1.0;
+	vec3 normalMap = texture2D( normalMap, newCoords.st ).rgb * 2.0 - 1.0;
 	vec3 normal = tsbMat * normalMap;
 #else
 	vec3 normal = tsbNormal;
@@ -371,7 +384,7 @@ void main( void )
 	vec3 newPos = pos.xyz;
 
 #ifdef _F03_ParallaxMapping
-	newPos += vec3( 0.0, texCoords.p, 0.0 );
+	newPos += vec3( 0.0, newCoords.p, 0.0 );
 #endif
 
 	gl_FragColor.rgb =
@@ -409,8 +422,12 @@ varying vec2 texCoords;
 #else
 	varying vec3 tsbNormal;
 #endif
+
 #ifdef _F03_ParallaxMapping
+	uniform vec4 matParallaxParams;
 	varying vec3 eyeTS;
+#else
+	#define newCoords texCoords
 #endif
 
 #ifdef _F04_EnvMapping
@@ -421,27 +438,26 @@ varying vec2 texCoords;
 void main( void )
 {
 #ifdef _F03_ParallaxMapping
-	const float plxScale = 0.03;
-	const float plxBias = -0.015;
+	vec3 newCoords = vec3( texCoords, 0 );
 
 	// Iterative parallax mapping
 	vec3 eye = normalize( eyeTS );
 	for( int i = 0; i < 4; ++i )
 	{
-		vec4 nmap = texture2D( normalMap, texCoords.st );
-		float height = nmap.a * plxScale + plxBias;
-		texCoords += (height - texCoords.p) * nmap.z * eye;
+		vec4 nmap = texture2D( normalMap, newCoords.st );
+		float height = nmap.a * matParallaxParams.b + matParallaxParams.b;
+		newCoords += (height - newCoords.p) * nmap.z * eye;
 	}
 #endif
 
-	vec4 albedo = texture2D( albedoMap, texCoords.st ) * matDiffuseCol;
+	vec4 albedo = texture2D( albedoMap, newCoords.st ) * matDiffuseCol;
 
 #ifdef _F05_AlphaTest
 	if( albedo.a < 0.01 ) discard;
 #endif
 
 #ifdef _F02_NormalMapping
-	vec3 normalMap = texture2D( normalMap, texCoords.st ).rgb * 2.0 - 1.0;
+	vec3 normalMap = texture2D( normalMap, newCoords.st ).rgb * 2.0 - 1.0;
 	vec3 normal = tsbMat * normalMap;
 #else
 	vec3 normal = tsbNormal;
