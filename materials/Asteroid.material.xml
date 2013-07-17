@@ -6,4 +6,5 @@
 
 	<!--ShaderFlag name="_F01_Skinning" /--> <!--TODO: What the heck does this flag actually do?-->
 	<ShaderFlag name="_F02_NormalMapping" />
+	<ShaderFlag name="_F03_ParallaxMapping" />
 </Material>
