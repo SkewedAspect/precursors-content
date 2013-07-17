@@ -1,0 +1,4 @@
+<Model name="SurfDonut" geometry="models/SurfDonut/SurfDonut.geo">
+
+	<Mesh name="SurfDonut" material="materials/Asteroid.material.xml" rx="-65" ry="0" rz="0" batchStart="0" batchCount="73728" vertRStart="0" vertREnd="73727" />
+</Model>
