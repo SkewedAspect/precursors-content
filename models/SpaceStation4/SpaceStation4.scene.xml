@@ -1,0 +1,4 @@
+<Model name="SpaceStation4" geometry="models/SpaceStation4/SpaceStation4.geo">
+
+	<Mesh name="space_stat" material="models/SpaceStation4/space_station_4.material.xml" tx="0.0001" ty="0.0001" tz="-0.0001" sx="7.57079" sy="7.57079" sz="7.57079" batchStart="0" batchCount="1266" vertRStart="0" vertREnd="1133" />
+</Model>
