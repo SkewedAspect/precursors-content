@@ -1,4 +1,4 @@
-<Material>
+<Material class="Skybox">
 	<Shader source="shaders/skybox.shader" />
 
 	<Sampler name="albedoMap" map="models/stars/purplenebula_2048.dds" />

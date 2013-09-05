@@ -13,10 +13,10 @@ context ATTRIBPASS
 	PixelShader = compile GLSL FS_ATTRIBPASS;
 }
 
-context AMBIENT
+context SKYBOX
 {
 	VertexShader = compile GLSL VS_GENERAL;
-	PixelShader = compile GLSL FS_AMBIENT;
+	PixelShader = compile GLSL FS_SKYBOX;
 
 	ZWriteEnable = false;
 }
@@ -59,7 +59,7 @@ void main( void )
 }
 
 
-[[FS_AMBIENT]]
+[[FS_SKYBOX]]
 // =================================================================================================
 
 uniform samplerCube albedoMap;
